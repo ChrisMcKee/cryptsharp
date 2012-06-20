@@ -1,0 +1,15 @@
+1.2.0 January 23, 2011:
+  The SCrypt KDF is now supported as CryptSharp.Utility.SCrypt.
+  Added djb's Salsa20, required by SCrypt.
+  
+1.1.1 January 22, 2011:
+  BCrypt can now use magic strings other than the default.
+  
+1.1.0 January 21, 2011:
+	Added a PBKDF2 implementation that can run against arbitrary HMACs. I will use this for SCrypt support soon.
+	The BCrypt password length limit was needlessly short. It is now fully compatible with PHP crypt.
+	The demo now checks Blowfish and PBKDF2 (SHA1) against official test vectors.
+	The demo also checks BCrypt against 400 crypts length 0-100 randomly generated with PHP.
+
+1.0.0 November 7, 2010:
+	Initial release.

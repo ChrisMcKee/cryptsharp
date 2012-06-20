@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F027B7D-C84F-4116-AA0A-8DEE2ACBF753}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CryptSharp.Demo</RootNamespace>
+    <AssemblyName>CryptSharp.Demo</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BCrypt\TestVectors.cs" />
+    <Compile Include="Blowfish\TestVectors.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Pbkdf2\TestVectors.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SCrypt\TestVectors.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Blowfish\TestVectors.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BCrypt\TestVectors.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\CryptSharp\CryptSharp.csproj">
+      <Project>{5E33051D-1471-4E5A-B94E-BD0E8FFFF99E}</Project>
+      <Name>CryptSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
