@@ -23,6 +23,7 @@ namespace CryptSharp.Utility
 {
 	using System;
 	using System.Diagnostics;
+	using System.Globalization;
 	using System.IO;
 	using System.Security.Cryptography;
 
@@ -60,15 +61,14 @@ namespace CryptSharp.Utility
 			if (bytes < output.Length)
 			{
 				throw new ArgumentException("Can only return "
-				                            + output.Length.ToString() + " bytes.", "output");
+				                            + output.Length.ToString(CultureInfo.InvariantCulture) + " bytes.", "output");
 			}
 		}
 
 		public static void ComputeKey(byte[] key, byte[] salt, int iterations,
 		                              ComputeHmacCallback computeHmacCallback, int hmacLength, byte[] output)
 		{
-			using (Pbkdf2 kdf = new Pbkdf2
-				(key, salt, iterations, computeHmacCallback, hmacLength))
+			using (Pbkdf2 kdf = new Pbkdf2(key, salt, iterations, computeHmacCallback, hmacLength))
 			{
 				kdf.Read(output);
 			}
@@ -78,7 +78,7 @@ namespace CryptSharp.Utility
 		{
 			return delegate(byte[] key, byte[] data, byte[] output)
 			       	{
-			       		using (T hmac = new T())
+			       		using (var hmac = new T())
 			       		{
 			       			Helper.CheckNull("key", key);
 			       			Helper.CheckNull("data", data);

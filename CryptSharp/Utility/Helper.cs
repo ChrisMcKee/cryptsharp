@@ -25,8 +25,7 @@ namespace CryptSharp.Utility
 
 	internal static class Helper
 	{
-		public static void CheckBounds<T>(string valueName,
-		                                  T[] value, int offset, int count)
+		public static void CheckBounds<T>(string valueName, T[] value, int offset, int count)
 		{
 			CheckNull(valueName, value);
 			if (offset < 0 || count < 0 || count > value.Length - offset)
@@ -35,20 +34,17 @@ namespace CryptSharp.Utility
 			}
 		}
 
-		public static void CheckNull<T>(string valueName, T value)
+		public static void CheckNull<T>(string valueName, T value) where T : class
 		{
 			if (value == null)
 			{
 				if (valueName == null)
-				{
 					throw new ArgumentNullException("valueName");
-				}
 				throw new ArgumentNullException(valueName);
 			}
 		}
 
-		public static void CheckRange(string valueName,
-		                              int value, int minimum, int maximum)
+		public static void CheckRange(string valueName, int value, int minimum, int maximum)
 		{
 			if (value < minimum || value > maximum)
 			{
@@ -58,8 +54,7 @@ namespace CryptSharp.Utility
 			}
 		}
 
-		public static void CheckRange<T>(string valueName,
-		                                 T[] value, int minimum, int maximum)
+		public static void CheckRange<T>(string valueName, T[] value, int minimum, int maximum)
 		{
 			CheckNull(valueName, value);
 			if (value.Length < minimum || value.Length > maximum)

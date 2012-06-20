@@ -32,18 +32,15 @@ namespace CryptSharp.Utility
 			{
 				return 0 + (value - '0');
 			}
-			else if (value >= 'A' && value <= 'F')
+			if (value >= 'A' && value <= 'F')
 			{
 				return 10 + (value - 'A');
 			}
-			else if (value >= 'a' && value <= 'f')
+			if (value >= 'a' && value <= 'f')
 			{
 				return 10 + (value - 'a');
 			}
-			else
-			{
-				return 0;
-			}
+			return 0;
 		}
 
 		public static byte[] Decode(char[] value)

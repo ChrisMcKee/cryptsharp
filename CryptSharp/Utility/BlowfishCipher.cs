@@ -19,8 +19,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #endregion
 
-// I ported this from Bruce Schneier's C implementation.
-//
+// Ported this from Bruce Schneier's C implementation.
 // Unlike Crypter, the BlowfishCipher class does NOT automatically
 // add a null terminating last byte to the key. You have to do that
 // yourself if your particular application requires it (Blowfish
@@ -33,7 +32,7 @@ namespace CryptSharp.Utility
 
 	public partial class BlowfishCipher : IDisposable
 	{
-		private static readonly byte[] _zeroSalt = new byte[16];
+		private static readonly byte[] ZeroSalt = new byte[16];
 		private static readonly uint[] Magic;
 		private readonly uint[] P;
 		private readonly uint[][] S;
@@ -66,9 +65,9 @@ namespace CryptSharp.Utility
 		public void Dispose()
 		{
 			Array.Clear(P, 0, P.Length);
-			for (int i = 0; i < S.Length; i++)
+			foreach (uint[] t in S)
 			{
-				Array.Clear(S[i], 0, S[i].Length);
+				Array.Clear(t, 0, t.Length);
 			}
 		}
 
@@ -79,7 +78,7 @@ namespace CryptSharp.Utility
 			Helper.CheckRange("key", key, 4, 56);
 
 			BlowfishCipher fish = new BlowfishCipher();
-			fish.ExpandKey(key, _zeroSalt);
+			fish.ExpandKey(key, ZeroSalt);
 			return fish;
 		}
 
@@ -93,8 +92,8 @@ namespace CryptSharp.Utility
 			fish.ExpandKey(key, salt);
 			for (uint i = 1u << cost; i > 0; i --)
 			{
-				fish.ExpandKey(key, _zeroSalt);
-				fish.ExpandKey(salt, _zeroSalt);
+				fish.ExpandKey(key, ZeroSalt);
+				fish.ExpandKey(salt, ZeroSalt);
 			}
 			return fish;
 		}

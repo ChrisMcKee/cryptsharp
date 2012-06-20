@@ -25,7 +25,9 @@ namespace CryptSharp.Utility
 
 	public static class Salsa20Core
 	{
-		// Source: http://cr.yp.to/salsa20.html
+		/// <summary>
+		/// Source Taken from: http://cr.yp.to/salsa20.html
+		/// </summary>
 		private static uint R(uint a, int b)
 		{
 			return (a << b) | (a >> (32 - b));

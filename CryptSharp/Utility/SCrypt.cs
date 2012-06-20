@@ -25,15 +25,15 @@ namespace CryptSharp.Utility
 	using System.Security.Cryptography;
 	using System.Threading;
 
-	// See http://www.tarsnap.com/scrypt/scrypt.pdf for algorithm details.
-	// TODO: Test on a big-endian machine and make sure it works.
-	// TODO: Feel hatred for whatever genius decided C# wouldn't have 'safe'
-	//       stack-allocated arrays. He has stricken ugliness upon a thousand codes.
+	/// <summary>
+	/// See http://www.tarsnap.com/scrypt/scrypt.pdf for algorithm details.
+	/// TODO: Test on a big-endian machine and make sure it works.
+	/// </summary>
 	public static class SCrypt
 	{
-		private const int hLen = 32;
+		private const int HLen = 32;
 
-		private static readonly Pbkdf2.ComputeHmacCallback _hmacCallback =
+		private static readonly Pbkdf2.ComputeHmacCallback HmacCallback =
 			Pbkdf2.CallbackFromHmac<HMACSHA256>();
 
 		public static void ComputeKey(byte[] key, byte[] salt,
@@ -57,7 +57,7 @@ namespace CryptSharp.Utility
 		                               int cost, int blockSize, int parallel, int? maxThreads)
 		{
 			byte[] B = GetEffectivePbkdf2Salt(key, salt, cost, blockSize, parallel, maxThreads);
-			Pbkdf2 kdf = new Pbkdf2(key, B, 1, _hmacCallback, hLen);
+			var kdf = new Pbkdf2(key, B, 1, HmacCallback, HLen);
 			Clear(B);
 			return kdf;
 		}
@@ -85,7 +85,7 @@ namespace CryptSharp.Utility
 			Helper.CheckRange("maxThreads", (int) maxThreads, 1, int.MaxValue);
 
 			byte[] B = new byte[parallel*MFLen];
-			Pbkdf2.ComputeKey(P, S, 1, _hmacCallback, hLen, B);
+			Pbkdf2.ComputeKey(P, S, 1, HmacCallback, HLen, B);
 
 			uint[] B0 = new uint[B.Length/4];
 			for (int i = 0; i < B0.Length; i++)

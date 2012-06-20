@@ -11,8 +11,8 @@ CryptSharp provides Blowfish, BCrypt, SCrypt, and PBKDF2 for any HMAC (.Net's bu
 
 Using CryptSharp is simple. To crypt a password, add the assembly to your references and type:
 <pre><code>
-using CryptSharp
-string crypted = Crypter.Blowfish.Crypt(keyBytes); or
+using CryptSharp;
+string crypted = Crypter.Blowfish.Crypt(keyBytes); //or
 string crypted = Crypter.Blowfish.Crypt(keyBytes, Crypter.Blowfish.GenerateSalt(6));
 </code></pre>
 
@@ -20,9 +20,8 @@ To test the crypted password against a potential password, use:
 <pre><code>
 using CryptSharp;
 bool matches = (crypted == Crypter.Blowfish.Crypt(testKeyBytes, crypted));
-Be aware when using BCrypt that only the first 72 bytes of a password are used. This limitation is not specific to my implementation. If you are likely to pass byte arrays over 72 bytes in length, call PadKeyThenCrypt to have the extra bytes removed.
 </code></pre>
-
+Be aware when using BCrypt that only the first 72 bytes of a password are used. This limitation is not specific to my implementation. If you are likely to pass byte arrays over 72 bytes in length, call PadKeyThenCrypt to have the extra bytes removed.
 
 _CryptSharp uses the ISC license._
 
