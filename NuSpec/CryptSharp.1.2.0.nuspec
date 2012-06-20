@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <version>1.2.0</version>
+    <authors>ChrisMcKee</authors>
+    <owners>Copyright 2011 James F. Bellinger &lt;jfb@zer7.com&gt;</owners>
+    <licenseUrl>http://opensource.org/licenses/isc-license.txt</licenseUrl>
+    <projectUrl>https://github.com/ChrisMcKee/cryptsharp</projectUrl>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Security" targetFramework="" />
+    </frameworkAssemblies>
+    <id>CryptSharp</id>
+    <title>CryptSharp</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>My package description.</description>
+    <summary>CryptSharp provides Blowfish, BCrypt, SCrypt, and PBKDF2 for any HMAC (.Net's built-in PBKDF2 implementation supports only SHA-1). If you are looking to store passwords in a database, BCrypt is much h</summary>
+    <tags>cryptsharp, hashing, hash, bcrypt, scrypt, pbkdf2, blowfish</tags>
+  </metadata>
+  <files>
+    <file src="..\bin\CryptSharp.pdb" target="lib\net35\CryptSharp.pdb" />
+    <file src="..\bin\CryptSharp.dll" target="lib\net35\CryptSharp.dll" />
+  </files>
+</package>

@@ -3,6 +3,8 @@ CryptSharp
 
 GIT Clone of the source files in http://www.zer7.com/software.php?page=cryptsharp
 
+Install using NUGET - https://nuget.org/packages/CryptSharp/
+
 ------------------
 
 CryptSharp provides Blowfish, BCrypt, SCrypt, and PBKDF2 for any HMAC (.Net's built-in PBKDF2 implementation supports only SHA-1). If you are looking to store passwords in a database, BCrypt is much harder for an attacker to break than, say, simple MD5 or SHA-1. I recommend it.
