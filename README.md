@@ -43,7 +43,7 @@ _GIT Clone of the source files in http://www.zer7.com/software.php?page=cryptsha
 _CryptSharp uses the ISC license._
 http://en.wikipedia.org/wiki/ISC_license
 
-_Taken from the January 23, 2011 download._
+_Taken from the January 23, 2011 - version 1.2.0 (v2 is available in nuget as CryptSharp official) download._
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
