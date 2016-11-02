@@ -91,5 +91,25 @@ namespace CryptSharp
 		{
 			Helper.CheckRange("key", key, MinKeyLength, MaxKeyLength);
 		}
+		
+		/// <summary>
+		/// Checks if two strings are equal. Compares every char to prevent timing attacks.
+		/// </summary>
+		/// <param name="a">String to compare.</param>
+		/// <param name="b">String to compare.</param>
+		/// <returns>True if both strings are equal</returns>
+		public static bool SafeEquals(string a, string b)
+	        {
+			if (a.Length != b.Length) {
+				return False;
+			}
+			uint diff = 0;
+			
+			for (int i = 0; i < a.Length; i++) {
+				diff |= (uint)a[i] ^ (uint)b[i];
+			}
+			
+			return 1 & ((diff - 1) >> 8);
+	        }
 	}
 }

@@ -23,7 +23,7 @@ To test the crypted password against a potential password, use:
 
 <pre><code>
 using CryptSharp;
-bool matches = (crypted == Crypter.Blowfish.Crypt(testKeyBytes, crypted));
+bool matches = Crypter.SafeEquals(crypted, Crypter.Blowfish.Crypt(testKeyBytes, crypted));
 </code></pre>
 
 Be aware when using BCrypt that only the first 72 bytes of a password are used. This limitation is not specific to this implementation. If you are likely to pass byte arrays over 72 bytes in length, call PadKeyThenCrypt to have the extra bytes removed.
