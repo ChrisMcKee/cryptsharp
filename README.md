@@ -1,8 +1,14 @@
 CryptSharp
 ==========
 
-Install using NUGET - https://nuget.org/packages/CryptSharp/
-==========
+For password hashing use https://github.com/BcryptNet/bcrypt.net 
+and nuget - https://www.nuget.org/packages/BCrypt.Net-Next/
+
+-----------------------
+
+
+Available on NUGET - https://nuget.org/packages/CryptSharp/
+
 
 ------------------
 
