@@ -93,9 +93,7 @@ namespace CryptSharp
 
 			byte[] crypt = BlowfishCipher.BCrypt(key, saltBytes, rounds);
 
-			string result = string.Format("$2a${0}${1}{2}", rounds.ToString("00"),
-										  new string(UnixBase64.Encode(saltBytes)),
-										  new string(UnixBase64.Encode(crypt)));
+			string result = string.Format("$2a${0}${1}{2}", rounds.ToString("00"), new string(UnixBase64.Encode(saltBytes)), new string(UnixBase64.Encode(crypt)));
 
 			Array.Clear(crypt, 0, crypt.Length);
 			Array.Clear(saltBytes, 0, saltBytes.Length);

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Description>CryptSharp - use https://www.nuget.org/packages/BCrypt.Net-Next/ for password hashing not this library.</Description>
+        <AssemblyTitle>CryptSharp</AssemblyTitle>
+        <AssemblyName>CryptSharp</AssemblyName>
+
+        <VersionPrefix>1.3.0</VersionPrefix>
+        <Version>1.3.0</Version>
+        <AssemblyVersion>1.3.0.2</AssemblyVersion>
+        <FileVersion>1.3.0.2</FileVersion>
+
+        <TargetFrameworks>netstandard2.0;net462</TargetFrameworks>
+        <OutputTypeEx>Library</OutputTypeEx>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <IncludeSource>true</IncludeSource>
+
+        <PackageId>CryptSharp</PackageId>
+        <Title>CryptSharp</Title>
+
+        <Summary>Unmaintained first release of https://www.zer7.com/software.php?page=cryptsharp</Summary>
+        <PackageTags>cryptography;hashing;security,hash;crypto</PackageTags>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/BcryptNet/bcrypt.net</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="ISCLicence.txt" />
+        <None Remove="test-vector-gen.php" />
+        <None Remove="test.php" />
+    </ItemGroup>
+
+</Project>
